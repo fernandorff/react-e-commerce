@@ -2,7 +2,14 @@ import React from 'react'
 import { Button, Flex, Input, Layout } from 'antd'
 import { AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
-import { toggleDrawer } from '../redux/slices/LoginDrawer.slice.js'
+import {
+  closeLoginDrawer,
+  toggleLoginDrawer,
+} from '../redux/slices/LoginDrawer.slice.js'
+import {
+  closeCartDrawer,
+  toggleCartDrawer,
+} from '../redux/slices/CartDrawer.slice.js'
 
 export const NavbarComp = () => {
   const onSearch = (value, _e, info) => console.log(info?.source, value)
@@ -10,7 +17,13 @@ export const NavbarComp = () => {
   const dispatch = useDispatch()
 
   const handleLoginDrawerToggle = () => {
-    dispatch(toggleDrawer())
+    dispatch(closeCartDrawer())
+    dispatch(toggleLoginDrawer())
+  }
+
+  const handleCartDrawerToggle = () => {
+    dispatch(closeLoginDrawer())
+    dispatch(toggleCartDrawer())
   }
 
   return (
@@ -33,7 +46,7 @@ export const NavbarComp = () => {
         className={'w-1/2 m-auto'}
       />
 
-      <Button size={'large'} type="text">
+      <Button size={'large'} type="text" onClick={handleCartDrawerToggle}>
         <AiOutlineShoppingCart
           size={'100%'}
           className={'text-gray-200 hover:text-white transition ease-in-out'}

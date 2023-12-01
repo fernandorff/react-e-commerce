@@ -2,7 +2,7 @@ import React from 'react'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { Button, Checkbox, Drawer, Flex, Form, Input, Typography } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-import { closeDrawer } from '../redux/slices/LoginDrawer.slice.js'
+import { closeLoginDrawer } from '../redux/slices/LoginDrawer.slice.js'
 
 const onFinish = (values) => {
   console.log('Success:', values)
@@ -17,7 +17,7 @@ export const LoginDrawerFeat = () => {
   const dispatch = useDispatch()
 
   const handleCloseLoginDrawer = () => {
-    dispatch(closeDrawer())
+    dispatch(closeLoginDrawer())
   }
 
   return (

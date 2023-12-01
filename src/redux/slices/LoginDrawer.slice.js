@@ -6,18 +6,18 @@ export const loginDrawerSlice = createSlice({
     open: false,
   },
   reducers: {
-    openDrawer: (state) => {
+    openLoginDrawer: (state) => {
       state.open = true
     },
-    closeDrawer: (state) => {
+    closeLoginDrawer: (state) => {
       state.open = false
     },
-    toggleDrawer: (state) => {
+    toggleLoginDrawer: (state) => {
       state.open = !state.open
     },
   },
 })
 
-export const { openDrawer, closeDrawer, toggleDrawer } =
+export const { openLoginDrawer, closeLoginDrawer, toggleLoginDrawer } =
   loginDrawerSlice.actions
 export const loginDrawerReducer = loginDrawerSlice.reducer
