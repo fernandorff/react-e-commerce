@@ -4,11 +4,11 @@ import { AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
 import {
   closeLoginDrawer,
-  toggleLoginDrawer,
+  openLoginDrawer,
 } from '../redux/slices/LoginDrawer.slice.js'
 import {
   closeCartDrawer,
-  toggleCartDrawer,
+  openCartDrawer,
 } from '../redux/slices/CartDrawer.slice.js'
 
 export const NavbarComp = () => {
@@ -18,12 +18,12 @@ export const NavbarComp = () => {
 
   const handleLoginDrawerToggle = () => {
     dispatch(closeCartDrawer())
-    dispatch(toggleLoginDrawer())
+    dispatch(openLoginDrawer())
   }
 
   const handleCartDrawerToggle = () => {
     dispatch(closeLoginDrawer())
-    dispatch(toggleCartDrawer())
+    dispatch(openCartDrawer())
   }
 
   return (

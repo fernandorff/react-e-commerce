@@ -1,17 +1,18 @@
 import React from 'react'
-import { Button, Card, Rate } from 'antd'
+import { Button, Card, Image, Rate } from 'antd'
 import PropTypes from 'prop-types'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 
-export const ProductCardComp = ({ product }) => {
+export const FeedProductCardComp = ({ product }) => {
+  const loading = false
   return (
     <Card
       hoverable
       className={'w-60'}
       cover={
-        <img
-          className={'h-52 object-cover'}
-          alt={product.price || ''}
+        <Image
+          className={'p-4 h-52 object-cover rounded-3xl'}
+          alt={product.description || ''}
           src={product.imageSrc || ''}
         />
       }
@@ -38,7 +39,7 @@ export const ProductCardComp = ({ product }) => {
   )
 }
 
-ProductCardComp.propTypes = {
+FeedProductCardComp.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

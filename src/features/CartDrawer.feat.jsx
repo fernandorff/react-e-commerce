@@ -1,17 +1,12 @@
 import React from 'react'
-import { Drawer, Form, Typography } from 'antd'
+import { Drawer, Flex } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { closeCartDrawer } from '../redux/slices/CartDrawer.slice.js'
-
-const onFinish = (values) => {
-  console.log('Success:', values)
-}
-const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo)
-}
+import productListMockData from '../__mock-data/mock-product-list-data.json'
+import { CartProductCardComp } from '../components/CartProductCard.comp.jsx'
 
 export const CartDrawerFeat = () => {
-  const isLoginDrawerOpen = useSelector((state) => state.cartDrawer.open)
+  const isCartDrawerOpen = useSelector((state) => state.cartDrawer.open)
 
   const dispatch = useDispatch()
 
@@ -24,23 +19,13 @@ export const CartDrawerFeat = () => {
       title="Shopping Cart"
       width={'30rem'}
       onClose={handleCloseCartDrawer}
-      open={isLoginDrawerOpen}
+      open={isCartDrawerOpen}
     >
-      <Form
-        name="login"
-        layout="vertical"
-        initialValues={{
-          remember: true,
-        }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-      >
-        <Form.Item>
-          <Typography.Title level={2} cent>
-            Shopping Cart
-          </Typography.Title>
-        </Form.Item>
-      </Form>
+      <Flex vertical className={'gap-2'}>
+        {productListMockData.map((product) => (
+          <CartProductCardComp product={product} />
+        ))}
+      </Flex>
     </Drawer>
   )
 }
