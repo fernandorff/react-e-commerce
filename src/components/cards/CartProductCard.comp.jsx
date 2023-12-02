@@ -9,7 +9,7 @@ export const CartProductCardComp = ({ product }) => {
     <Card className={'w-full'}>
       <Row gutter={[16, 16]}>
         <Col span={8}>
-          <Image src={imageSrc} alt={description} />
+          <Image src={imageSrc} alt={`${id} - ${description}`} />
         </Col>
         <Col span={12}>
           <h3>{description}</h3>

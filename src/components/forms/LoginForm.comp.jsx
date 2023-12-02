@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { AiOutlineMail } from 'react-icons/ai'
 import { login } from '../../redux/slices/LoggedUser.slice.js'
+import { toggleisLoginFormShown } from '../../redux/slices/Drawer.slice.js'
 
 const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo)

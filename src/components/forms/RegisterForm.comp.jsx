@@ -1,7 +1,7 @@
 import React from 'react'
 import { LockOutlined } from '@ant-design/icons'
 import { Button, Flex, Form, Input, Typography } from 'antd'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { AiOutlineMail } from 'react-icons/ai'
 import { toggleisLoginFormShown } from '../../redux/slices/drawer.slice.js'
 
@@ -15,10 +15,6 @@ const onFinishFailed = (errorInfo) => {
 
 export const RegisterFormComp = () => {
   const dispatch = useDispatch()
-
-  const isLoginFormSelected = useSelector(
-    (state) => state.drawer.isLoginFormShown
-  )
 
   const handleToggleisLoginFormShown = (event) => {
     event.preventDefault()
