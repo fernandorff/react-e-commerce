@@ -7,7 +7,7 @@ import {
   SettingOutlined,
 } from '@ant-design/icons'
 import { useDispatch } from 'react-redux'
-import { closeUserProfileDrawer } from '../../redux/slices/drawer.slice.js'
+import { logout } from '../../redux/slices/LoggedUser.slice.js'
 
 function getItem({ label, key, icon, onClick }) {
   return {
@@ -22,8 +22,8 @@ export const UserProfileMenuComp = () => {
   const dispatch = useDispatch()
 
   const handleLogout = () => {
-    localStorage.removeItem('user')
-    dispatch(closeUserProfileDrawer())
+    dispatch(logout())
+    window.location.reload()
   }
 
   const items = [

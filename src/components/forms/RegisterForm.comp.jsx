@@ -21,7 +21,6 @@ export const RegisterFormComp = () => {
   )
 
   const handleToggleisLoginFormShown = (event) => {
-    console.log(isLoginFormSelected)
     event.preventDefault()
     dispatch(toggleisLoginFormShown())
   }

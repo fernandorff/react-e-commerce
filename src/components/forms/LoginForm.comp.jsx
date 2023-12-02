@@ -4,7 +4,7 @@ import { Button, Checkbox, Flex, Form, Input, Typography } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { AiOutlineMail } from 'react-icons/ai'
-import { closeLoginDrawer } from '../../redux/slices/drawer.slice.js'
+import { login } from '../../redux/slices/LoggedUser.slice.js'
 
 const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo)
@@ -30,12 +30,13 @@ export const LoginFormComp = () => {
     const { email, password } = values
 
     if (email === mockUserData.email && password === mockUserData.password) {
-      localStorage.setItem('user', JSON.stringify(mockUserData))
+      const user = { ...mockUserData }
+      delete user.password
+      dispatch(login(user))
+      window.location.reload()
     } else {
       alert('Invalid credentials. Please try again.')
-      return
     }
-    dispatch(closeLoginDrawer())
   }
 
   const handleToggleisLoginFormShown = (event) => {
