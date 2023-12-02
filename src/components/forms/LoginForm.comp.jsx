@@ -2,27 +2,46 @@ import React from 'react'
 import { LockOutlined } from '@ant-design/icons'
 import { Button, Checkbox, Flex, Form, Input, Typography } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleShowLoginForm } from '../../redux/slices/LoginDrawer.slice.js'
-import { AiOutlineMail } from 'react-icons/ai'
 
-const onFinish = (values) => {
-  console.log('Success:', values)
-}
+import { AiOutlineMail } from 'react-icons/ai'
+import { closeLoginDrawer } from '../../redux/slices/drawer.slice.js'
+
 const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo)
+}
+
+const mockUserData = {
+  id: '1',
+  name: 'Fernando Rocha',
+  email: 'fernandorocha@email.com',
+  password: '123123',
+  profileImgSrc:
+    'https://media.licdn.com/dms/image/D4D03AQFz1EWM-BoJ1w/profile-displayphoto-shrink_800_800/0/1701125731406?e=1706745600&v=beta&t=fBKd2fnsO5CuDBZjBBcKVux9wSs1dWM24aDkDNcDgWg',
 }
 
 export const LoginFormComp = () => {
   const dispatch = useDispatch()
 
   const isLoginFormSelected = useSelector(
-    (state) => state.loginDrawer.showLoginForm
+    (state) => state.drawer.isLoginFormShown
   )
 
-  const handleToggleShowLoginForm = (event) => {
+  const onSubmitLoginForm = (values) => {
+    const { email, password } = values
+
+    if (email === mockUserData.email && password === mockUserData.password) {
+      localStorage.setItem('user', JSON.stringify(mockUserData))
+    } else {
+      alert('Invalid credentials. Please try again.')
+      return
+    }
+    dispatch(closeLoginDrawer())
+  }
+
+  const handleToggleisLoginFormShown = (event) => {
     console.log(isLoginFormSelected)
     event.preventDefault()
-    dispatch(toggleShowLoginForm())
+    dispatch(toggleisLoginFormShown())
   }
 
   return (
@@ -32,7 +51,7 @@ export const LoginFormComp = () => {
       initialValues={{
         remember: true,
       }}
-      onFinish={onFinish}
+      onFinish={onSubmitLoginForm}
       onFinishFailed={onFinishFailed}
     >
       <Form.Item>
@@ -94,7 +113,7 @@ export const LoginFormComp = () => {
           <Button
             type={'text'}
             className={'font-bold'}
-            onClick={handleToggleShowLoginForm}
+            onClick={handleToggleisLoginFormShown}
           >
             Register now!
           </Button>

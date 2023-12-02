@@ -1,17 +1,17 @@
 import React from 'react'
 import { Drawer } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-import { closeLoginDrawer } from '../../redux/slices/LoginDrawer.slice.js'
 import { LoginFormComp } from '../forms/LoginForm.comp.jsx'
 import { RegisterFormComp } from '../forms/RegisterForm.comp.jsx'
+import { closeLoginDrawer } from '../../redux/slices/drawer.slice.js'
 
 export const AuthenticationDrawerComp = () => {
   const isLoginDrawerOpen = useSelector(
-    (state) => state.loginDrawer.openLoginDrawer
+    (state) => state.drawer.isLoginDrawerOpen
   )
 
   const isLoginFormSelected = useSelector(
-    (state) => state.loginDrawer.showLoginForm
+    (state) => state.drawer.isLoginFormShown
   )
 
   const dispatch = useDispatch()

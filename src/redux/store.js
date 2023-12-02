@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { loginDrawerReducer } from './slices/LoginDrawer.slice.js'
-import { cartDrawerReducer } from './slices/CartDrawer.slice.js'
+import { cartProductsSlice } from './slices/CartProducts.slice.js'
+import { drawerReducer } from './slices/drawer.slice.js'
 
 export const store = configureStore({
   reducer: {
-    loginDrawer: loginDrawerReducer,
-    cartDrawer: cartDrawerReducer,
+    drawer: drawerReducer,
+    cartProducts: cartProductsSlice,
   },
 })

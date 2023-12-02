@@ -2,10 +2,11 @@ import React from 'react'
 import { LockOutlined } from '@ant-design/icons'
 import { Button, Flex, Form, Input, Typography } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleShowLoginForm } from '../../redux/slices/LoginDrawer.slice.js'
 import { AiOutlineMail } from 'react-icons/ai'
+import { toggleisLoginFormShown } from '../../redux/slices/drawer.slice.js'
 
 const onFinish = (values) => {
+  alert('aaaaa')
   console.log('Success:', values)
 }
 const onFinishFailed = (errorInfo) => {
@@ -16,13 +17,13 @@ export const RegisterFormComp = () => {
   const dispatch = useDispatch()
 
   const isLoginFormSelected = useSelector(
-    (state) => state.loginDrawer.showLoginForm
+    (state) => state.drawer.isLoginFormShown
   )
 
-  const handleToggleShowLoginForm = (event) => {
+  const handleToggleisLoginFormShown = (event) => {
     console.log(isLoginFormSelected)
     event.preventDefault()
-    dispatch(toggleShowLoginForm())
+    dispatch(toggleisLoginFormShown())
   }
 
   return (
@@ -86,7 +87,7 @@ export const RegisterFormComp = () => {
           <Button
             type={'text'}
             className={'font-bold'}
-            onClick={handleToggleShowLoginForm}
+            onClick={handleToggleisLoginFormShown}
           >
             Login now!
           </Button>

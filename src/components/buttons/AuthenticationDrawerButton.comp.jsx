@@ -1,10 +1,12 @@
 import React from 'react'
 import { Button } from 'antd'
-import { AiOutlineUser } from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
-import { openLoginDrawer } from '../../redux/slices/LoginDrawer.slice.js'
-import { closeCartDrawer } from '../../redux/slices/CartDrawer.slice.js'
 import { AuthenticationDrawerComp } from '../drawers/AuthenticationDrawer.comp.jsx'
+import { AiOutlineUser } from 'react-icons/ai'
+import {
+  closeCartDrawer,
+  openLoginDrawer,
+} from '../../redux/slices/drawer.slice.js'
 
 export const AuthenticationDrawerButtonComp = () => {
   const dispatch = useDispatch()

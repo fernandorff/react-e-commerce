@@ -3,9 +3,12 @@ import { Flex, Input, Layout } from 'antd'
 import { AuthenticationDrawerComp } from '../drawers/AuthenticationDrawer.comp.jsx'
 import { AuthenticationDrawerButtonComp } from '../buttons/AuthenticationDrawerButton.comp.jsx'
 import { CartDrawerButtonComp } from '../buttons/CartDrawerButton.comp.jsx'
+import { UserProfileDrawerButtonComp } from '../buttons/UserProfileDrawerButton.comp.jsx'
 
 export const NavbarComp = () => {
   const onSearch = (value, _e, info) => console.log(info?.source, value)
+
+  const userData = JSON.parse(localStorage.getItem('user'))
 
   return (
     <Layout.Header
@@ -27,7 +30,11 @@ export const NavbarComp = () => {
         className={'w-1/2 m-auto'}
       />
       <CartDrawerButtonComp />
-      <AuthenticationDrawerButtonComp />
+      {userData ? (
+        <UserProfileDrawerButtonComp />
+      ) : (
+        <AuthenticationDrawerButtonComp />
+      )}
     </Layout.Header>
   )
 }
