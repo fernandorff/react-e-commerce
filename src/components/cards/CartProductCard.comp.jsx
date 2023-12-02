@@ -26,10 +26,10 @@ export const CartProductCardComp = ({ product }) => {
 
 CartProductCardComp.propTypes = {
   product: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     price: PropTypes.string,
     description: PropTypes.string,
-    rating: PropTypes.string,
+    rating: PropTypes.number,
     imageSrc: PropTypes.string,
   }),
 }

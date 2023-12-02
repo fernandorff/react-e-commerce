@@ -4,29 +4,22 @@ import PropTypes from 'prop-types'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 
 export const FeedProductCardComp = ({ product }) => {
-  const loading = false
+  const { id, price, description, rating, imageSrc } = product
   return (
     <Card
+      key={id}
       hoverable
       className={'w-60'}
       cover={
         <Image
           className={'p-4 h-52 object-cover rounded-3xl'}
-          alt={product.description || ''}
-          src={product.imageSrc || ''}
+          alt={description || ''}
+          src={imageSrc || ''}
         />
       }
     >
-      <Card.Meta
-        title={`$ ${product.price}` || ''}
-        description={product.description}
-      />
-      <Rate
-        className={'mt-4'}
-        allowHalf
-        disabled
-        defaultValue={product.rating}
-      />
+      <Card.Meta title={`$ ${price}` || ''} description={description} />
+      <Rate className={'mt-4'} allowHalf disabled defaultValue={rating} />
       <Button
         className={'w-full mt-4 flex justify-center'}
         style={{ alignItems: 'center' }}
@@ -42,10 +35,10 @@ export const FeedProductCardComp = ({ product }) => {
 FeedProductCardComp.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.string,
       price: PropTypes.string,
       description: PropTypes.string,
-      rating: PropTypes.string,
+      rating: PropTypes.number,
       imageSrc: PropTypes.string,
     })
   ),

@@ -1,12 +1,14 @@
 import React from 'react'
 import { Drawer, Flex } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-import { closeCartDrawer } from '../redux/slices/CartDrawer.slice.js'
-import productListMockData from '../__mock-data/mock-product-list-data.json'
-import { CartProductCardComp } from '../components/CartProductCard.comp.jsx'
+import { closeCartDrawer } from '../../redux/slices/CartDrawer.slice.js'
+import productListMockData from '../../__mock-data/mock-product-list-data.json'
+import { CartProductCardComp } from '../cards/CartProductCard.comp.jsx'
 
 export const CartDrawerFeat = () => {
-  const isCartDrawerOpen = useSelector((state) => state.cartDrawer.open)
+  const isCartDrawerOpen = useSelector(
+    (state) => state.cartDrawer.openCartDrawer
+  )
 
   const dispatch = useDispatch()
 

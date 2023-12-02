@@ -3,17 +3,17 @@ import { createSlice } from '@reduxjs/toolkit'
 export const cartDrawerSlice = createSlice({
   name: 'cartDrawer',
   initialState: {
-    open: false,
+    openCartDrawer: false,
   },
   reducers: {
     openCartDrawer: (state) => {
-      state.open = true
+      state.openCartDrawer = true
     },
     closeCartDrawer: (state) => {
-      state.open = false
+      state.openCartDrawer = false
     },
     toggleCartDrawer: (state) => {
-      state.open = !state.open
+      state.openCartDrawer = !state.openCartDrawer
     },
   },
 })

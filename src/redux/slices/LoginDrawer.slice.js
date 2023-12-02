@@ -3,21 +3,29 @@ import { createSlice } from '@reduxjs/toolkit'
 export const loginDrawerSlice = createSlice({
   name: 'loginDrawer',
   initialState: {
-    open: false,
+    openLoginDrawer: false,
+    showLoginForm: true,
   },
   reducers: {
     openLoginDrawer: (state) => {
-      state.open = true
+      state.openLoginDrawer = true
     },
     closeLoginDrawer: (state) => {
-      state.open = false
+      state.openLoginDrawer = false
     },
     toggleLoginDrawer: (state) => {
-      state.open = !state.open
+      state.openLoginDrawer = !state.openLoginDrawer
+    },
+    toggleShowLoginForm: (state) => {
+      state.showLoginForm = !state.showLoginForm
     },
   },
 })
 
-export const { openLoginDrawer, closeLoginDrawer, toggleLoginDrawer } =
-  loginDrawerSlice.actions
+export const {
+  openLoginDrawer,
+  closeLoginDrawer,
+  toggleLoginDrawer,
+  toggleShowLoginForm,
+} = loginDrawerSlice.actions
 export const loginDrawerReducer = loginDrawerSlice.reducer
