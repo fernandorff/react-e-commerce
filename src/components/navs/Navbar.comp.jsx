@@ -17,7 +17,7 @@ export const NavbarComp = () => {
       style={{ alignItems: 'center' }}
     >
       <Flex className={'h-full p-4'}>
-        {/*<img className={'h-full'} src={'paradis.png'} alt={'logo'} />*/}
+        <img className={'h-full'} src={'paradis.png'} alt={'logo'} />
       </Flex>
       <Input.Search
         placeholder="input search text"
