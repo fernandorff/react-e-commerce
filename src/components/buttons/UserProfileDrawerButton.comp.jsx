@@ -1,7 +1,7 @@
 import React from 'react'
 import { Avatar } from 'antd'
 import { useDispatch } from 'react-redux'
-import { isUserProfileDrawerOpen } from '../../redux/slices/drawer.slice.js'
+import { isUserProfileDrawerOpen } from '../../redux/slices/Drawer.slice.js'
 import { UserProfileDrawerComp } from '../drawers/UserProfileDrawer.comp.jsx'
 
 export const UserProfileDrawerButtonComp = () => {

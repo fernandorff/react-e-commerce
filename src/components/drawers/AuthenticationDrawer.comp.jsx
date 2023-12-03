@@ -3,7 +3,7 @@ import { Drawer } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { LoginFormComp } from '../forms/LoginForm.comp.jsx'
 import { RegisterFormComp } from '../forms/RegisterForm.comp.jsx'
-import { closeLoginDrawer } from '../../redux/slices/drawer.slice.js'
+import { closeLoginDrawer } from '../../redux/slices/Drawer.slice.js'
 
 export const AuthenticationDrawerComp = () => {
   const isLoginDrawerOpen = useSelector(

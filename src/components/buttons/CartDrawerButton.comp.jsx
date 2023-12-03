@@ -7,7 +7,7 @@ import { CartDrawerComp } from '../drawers/CartDrawer.comp.jsx'
 import {
   closeCartDrawer,
   openCartDrawer,
-} from '../../redux/slices/drawer.slice.js'
+} from '../../redux/slices/Drawer.slice.js'
 
 export const CartDrawerButtonComp = () => {
   const dispatch = useDispatch()

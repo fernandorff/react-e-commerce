@@ -6,7 +6,7 @@ import { AiOutlineUser } from 'react-icons/ai'
 import {
   closeCartDrawer,
   openLoginDrawer,
-} from '../../redux/slices/drawer.slice.js'
+} from '../../redux/slices/Drawer.slice.js'
 
 export const AuthenticationDrawerButtonComp = () => {
   const dispatch = useDispatch()

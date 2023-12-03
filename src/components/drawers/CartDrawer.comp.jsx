@@ -3,7 +3,7 @@ import { Button, Drawer, Flex } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import productListMockData from '../../__mock-data/mock-product-list-data.json'
 import { CartProductCardComp } from '../cards/CartProductCard.comp.jsx'
-import { closeCartDrawer } from '../../redux/slices/drawer.slice.js'
+import { closeCartDrawer } from '../../redux/slices/Drawer.slice.js'
 
 export const CartDrawerComp = () => {
   const isCartDrawerOpen = useSelector((state) => state.drawer.isCartDrawerOpen)

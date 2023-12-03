@@ -3,7 +3,7 @@ import { LockOutlined } from '@ant-design/icons'
 import { Button, Flex, Form, Input, Typography } from 'antd'
 import { useDispatch } from 'react-redux'
 import { AiOutlineMail } from 'react-icons/ai'
-import { toggleisLoginFormShown } from '../../redux/slices/drawer.slice.js'
+import { toggleisLoginFormShown } from '../../redux/slices/Drawer.slice.js'
 
 const onFinish = (values) => {
   alert('aaaaa')
