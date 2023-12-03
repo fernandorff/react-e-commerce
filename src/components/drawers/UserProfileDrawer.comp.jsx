@@ -18,7 +18,7 @@ export const UserProfileDrawerComp = () => {
   return (
     <Drawer
       title="User Menu"
-      width={'20rem'}
+      width={'30rem'}
       onClose={handleCloseUserProfileDrawer}
       open={isLoginDrawerOpen}
     >
