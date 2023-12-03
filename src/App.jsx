@@ -1,11 +1,15 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { HomePage } from './pages/Home.page.jsx'
+import { RouterProvider } from 'react-router-dom'
+import { store } from './redux/store.js'
+import { Toaster } from 'react-hot-toast'
+import { Provider } from 'react-redux'
+import { routes } from './routes.jsx'
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-    </Routes>
+    <Provider store={store}>
+      <Toaster />
+      <RouterProvider router={routes} />
+    </Provider>
   )
 }

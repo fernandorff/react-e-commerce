@@ -1,6 +1,5 @@
 import React from 'react'
 import { Flex, Input, Layout } from 'antd'
-import { AuthenticationDrawerComp } from '../drawers/AuthenticationDrawer.comp.jsx'
 import { AuthenticationDrawerButtonComp } from '../buttons/AuthenticationDrawerButton.comp.jsx'
 import { CartDrawerButtonComp } from '../buttons/CartDrawerButton.comp.jsx'
 import { UserProfileDrawerButtonComp } from '../buttons/UserProfileDrawerButton.comp.jsx'
@@ -17,9 +16,8 @@ export const NavbarComp = () => {
       }
       style={{ alignItems: 'center' }}
     >
-      <AuthenticationDrawerComp />
       <Flex className={'h-full p-4'}>
-        <img className={'h-full'} src={'paradis.png'} alt={'logo'} />
+        {/*<img className={'h-full'} src={'paradis.png'} alt={'logo'} />*/}
       </Flex>
       <Input.Search
         placeholder="input search text"
