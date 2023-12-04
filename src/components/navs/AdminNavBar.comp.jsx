@@ -14,7 +14,7 @@ export const AdminNavBarComp = () => {
       style={{ alignItems: 'center' }}
     >
       <Flex className={'h-full p-4'}>
-        <img className={'h-full'} src={'paradis.png'} alt={'logo'} />
+        <img className={'h-full'} src={'../paradis.png'} alt={'logo'} />
       </Flex>
       <Typography.Title level={2} className={'text-white'}>
         Administrator
