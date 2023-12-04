@@ -1,10 +1,7 @@
 import React from 'react'
 import { Layout, Menu } from 'antd'
-import { LogoutOutlined } from '@ant-design/icons'
-import { logout } from '../../redux/slices/LoggedUser.slice.js'
 import { useDispatch } from 'react-redux'
 import { BsBoxSeam } from 'react-icons/bs'
-import { LuWarehouse } from 'react-icons/lu'
 import { BiPurchaseTag } from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
 
@@ -21,11 +18,6 @@ export const AdminSideMenuComp = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const handleLogout = () => {
-    dispatch(logout())
-    window.location.reload()
-  }
-
   const items = [
     getItem({
       label: 'Products',
@@ -34,20 +26,9 @@ export const AdminSideMenuComp = () => {
       onClick: () => navigate('/admin/product'),
     }),
     getItem({
-      label: 'Stock',
-      key: '2',
-      icon: <LuWarehouse />,
-    }),
-    getItem({
       label: 'Orders',
       key: '3',
       icon: <BiPurchaseTag />,
-    }),
-    getItem({
-      label: 'Logout',
-      key: '4',
-      icon: <LogoutOutlined />,
-      onClick: handleLogout,
     }),
   ]
 

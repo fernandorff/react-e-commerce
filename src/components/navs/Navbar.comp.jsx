@@ -3,9 +3,11 @@ import { Flex, Input, Layout } from 'antd'
 import { AuthenticationDrawerButtonComp } from '../buttons/AuthenticationDrawerButton.comp.jsx'
 import { CartDrawerButtonComp } from '../buttons/CartDrawerButton.comp.jsx'
 import { UserProfileDrawerButtonComp } from '../buttons/UserProfileDrawerButton.comp.jsx'
+import { useNavigate } from 'react-router-dom'
 
 export const NavbarComp = () => {
   const onSearch = (value, _e, info) => console.log(info?.source, value)
+  const navigate = useNavigate()
 
   const userData = JSON.parse(localStorage.getItem('user'))
 
@@ -16,7 +18,10 @@ export const NavbarComp = () => {
       }
       style={{ alignItems: 'center' }}
     >
-      <Flex className={'h-full p-4'}>
+      <Flex
+        className={'h-full p-4 cursor-pointer'}
+        onClick={() => navigate('/admin')}
+      >
         <img className={'h-full'} src={'paradis.png'} alt={'logo'} />
       </Flex>
       <Input.Search

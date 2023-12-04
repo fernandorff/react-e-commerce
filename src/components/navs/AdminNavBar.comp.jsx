@@ -1,10 +1,10 @@
 import React from 'react'
 import { Flex, Layout, Typography } from 'antd'
-import { AuthenticationDrawerButtonComp } from '../buttons/AuthenticationDrawerButton.comp.jsx'
-import { UserProfileDrawerButtonComp } from '../buttons/UserProfileDrawerButton.comp.jsx'
+import { useNavigate } from 'react-router-dom'
 
 export const AdminNavBarComp = () => {
   const userData = JSON.parse(localStorage.getItem('user'))
+  const navigate = useNavigate()
 
   return (
     <Layout.Header
@@ -13,19 +13,16 @@ export const AdminNavBarComp = () => {
       }
       style={{ alignItems: 'center' }}
     >
-      <Flex className={'h-full p-4'}>
+      <Flex
+        className={'h-full p-4 cursor-pointer'}
+        onClick={() => navigate('/')}
+      >
         <img className={'h-full'} src={'../paradis.png'} alt={'logo'} />
       </Flex>
       <Typography.Title level={2} className={'text-white'}>
         Administrator
       </Typography.Title>
-      <Flex>
-        {userData ? (
-          <UserProfileDrawerButtonComp />
-        ) : (
-          <AuthenticationDrawerButtonComp />
-        )}
-      </Flex>
+      <div />
     </Layout.Header>
   )
 }

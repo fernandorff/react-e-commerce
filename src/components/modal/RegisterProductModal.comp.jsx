@@ -31,14 +31,6 @@ export const RegisterProductModalComp = () => {
           <Button key="back" onClick={handleCancel}>
             Return
           </Button>,
-          <Button
-            key="submit"
-            type="primary"
-            loading={loading}
-            onClick={handleOk}
-          >
-            Submit
-          </Button>,
         ]}
       >
         <RegisterProductFormComp />

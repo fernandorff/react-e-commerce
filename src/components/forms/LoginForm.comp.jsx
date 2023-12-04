@@ -7,10 +7,6 @@ import { AiOutlineMail } from 'react-icons/ai'
 import { login } from '../../redux/slices/LoggedUser.slice.js'
 import { toggleisLoginFormShown } from '../../redux/slices/Drawer.slice.js'
 
-const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo)
-}
-
 const mockUserData = {
   id: '1',
   name: 'Fernando Rocha',
@@ -38,6 +34,10 @@ export const LoginFormComp = () => {
     } else {
       alert('Invalid credentials. Please try again.')
     }
+  }
+
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo)
   }
 
   const handleToggleisLoginFormShown = (event) => {

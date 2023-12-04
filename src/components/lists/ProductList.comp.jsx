@@ -1,14 +1,15 @@
 import React from 'react'
 import { Flex, Layout } from 'antd'
-import productListMockData from '../../__mock-data/mock-product-list-data.json'
 import { FeedProductCardComp } from '../cards/FeedProductCard.comp.jsx'
+import { useGetProductsQuery } from '../../redux/api/ProductApi.jsx'
 
 export const ProductListComp = () => {
+  const { data, isLoading, isError, error, refetch } = useGetProductsQuery()
   return (
     <Layout>
       <Layout.Content className={'p-4'}>
         <Flex wrap="wrap" gap="middle">
-          {productListMockData.map((product, index) => (
+          {data?.map((product, index) => (
             <FeedProductCardComp key={index} product={product} />
           ))}
         </Flex>

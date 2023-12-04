@@ -8,7 +8,7 @@ import { routes } from './routes.jsx'
 export const App = () => {
   return (
     <Provider store={store}>
-      <Toaster />
+      <Toaster position={'bottom-right'} toastOptions={{ duration: 4000 }} />
       <RouterProvider router={routes} />
     </Provider>
   )
