@@ -1,4 +1,4 @@
-# React E-Commerce Project
+# React E-Commerce Application
 
 ![image](https://github.com/fernandorff/react-e-commerce/assets/101672271/25021877-c917-44e7-ba13-7c5cba0cfd4d)
 
