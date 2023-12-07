@@ -13,12 +13,21 @@
 
 ##
 
-### Front-End for this project
+### Back-End for this project
 [https://github.com/fernandorff/react-e-commerce](https://github.com/fernandorff/spring-ecommerce-micro-services)
 
 ## Overview
 
 This is a React E-Commerce project that utilizes Redux for state management and integrates with Ant Design for a sleek and responsive user interface. The project structure follows the module type and leverages Vite as the build tool for fast development.
+
+## Technologies Used
+
+- **Tailwind CSS:** A utility-first CSS framework for building modern web designs.
+- **Ant Design:** A design system and React UI library for building elegant user interfaces.
+- **JavaScript:** The programming language that enables dynamic behavior on the frontend.
+- **React:** A JavaScript library for building user interfaces, particularly for single-page applications where UI updates are frequent.
+- **Redux:** A predictable state container for JavaScript applications to manage the state of the application in a predictable way.
+- **Vite:** A fast build tool that enhances the development experience for modern web projects.
 
 ## Prerequisites
 
