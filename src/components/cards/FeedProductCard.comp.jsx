@@ -43,10 +43,10 @@ export const FeedProductCardComp = ({ productId, stock }) => {
     data && (
       <Card
         key={data?.id}
-        className={'w-60 h-full m-4 shadow'}
+        className={'w-60 h-auto m-4 shadow'}
         cover={
           <Image
-            className={'h-52 object-cover '}
+            className={'h-52 object-contain'}
             alt={data?.description}
             src={data?.imageUrl}
           />
@@ -65,7 +65,7 @@ export const FeedProductCardComp = ({ productId, stock }) => {
         ]}
       >
         <Card.Meta
-          className={'mb-auto'}
+          className={'mb-auto h-100'}
           title={`$ ${stock?.price}`}
           description={
             <>
