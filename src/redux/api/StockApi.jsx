@@ -8,10 +8,36 @@ export const StockApi = createApi({
     getStocks: builder.query({
       query: () => `stock`,
     }),
-    getStockByProductId: builder.query({
+    getActiveStocks: builder.query({
+      query: () => `stock/active`,
+    }),
+    getStocksByProductId: builder.query({
       query: (id) => `stock/by-product-id/${id}`,
+    }),
+    getFirstCheapestAvailableStockByProductId: builder.query({
+      query: (id) => `stock/by-product-id/first-cheapest-available/${id}`,
+    }),
+    createStock: builder.mutation({
+      query: (newStock) => ({
+        url: 'stock',
+        method: 'POST',
+        body: newStock,
+      }),
+    }),
+    deleteStockById: builder.mutation({
+      query: (id) => ({
+        url: `stock/${id}`,
+        method: 'DELETE',
+      }),
     }),
   }),
 })
 
-export const { useGetStocksQuery, useGetStockByProductIdQuery } = StockApi
+export const {
+  useGetStocksQuery,
+  useGetActiveStocksQuery,
+  useGetStocksByProductIdQuery,
+  useGetFirstCheapestAvailableStockByProductIdQuery,
+  useCreateStockMutation,
+  useDeleteStockByIdMutation,
+} = StockApi

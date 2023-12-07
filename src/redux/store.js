@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { cartProductsSlice } from './slices/CartProducts.slice.js'
 import { drawerReducer } from './slices/Drawer.slice.js'
 import { loggedUserReducer } from './slices/LoggedUser.slice.js'
 import { ProductApi } from './api/ProductApi.jsx'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { OrderApi } from './api/OrderApi.jsx'
 import { StockApi } from './api/StockApi.jsx'
+import { shoppingCartReducer } from './slices/ShoppingCart.slice.js'
 
 export const store = configureStore({
   reducer: {
@@ -13,8 +13,8 @@ export const store = configureStore({
     [OrderApi.reducerPath]: OrderApi.reducer,
     [StockApi.reducerPath]: StockApi.reducer,
     drawer: drawerReducer,
-    cartProducts: cartProductsSlice,
     loggedUser: loggedUserReducer,
+    shoppingCart: shoppingCartReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()

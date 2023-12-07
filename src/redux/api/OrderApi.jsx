@@ -8,7 +8,14 @@ export const OrderApi = createApi({
     getAllOrders: builder.query({
       query: () => `order`,
     }),
+    saveOrder: builder.mutation({
+      query: (body) => ({
+        url: 'order',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 })
 
-export const { useGetAllOrdersQuery } = OrderApi
+export const { useGetAllOrdersQuery, useSaveOrderMutation } = OrderApi

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Flex, Input, Layout } from 'antd'
 import { AuthenticationDrawerButtonComp } from '../buttons/AuthenticationDrawerButton.comp.jsx'
-import { CartDrawerButtonComp } from '../buttons/CartDrawerButton.comp.jsx'
 import { UserProfileDrawerButtonComp } from '../buttons/UserProfileDrawerButton.comp.jsx'
 import { useNavigate } from 'react-router-dom'
+import { CartDrawerComp } from '../drawers/CartDrawer.comp.jsx'
 
 export const NavbarComp = () => {
   const onSearch = (value, _e, info) => console.log(info?.source, value)
@@ -32,7 +32,7 @@ export const NavbarComp = () => {
         onSearch={onSearch}
         className={'w-1/2 m-auto'}
       />
-      <CartDrawerButtonComp />
+      <CartDrawerComp />
       {userData ? (
         <UserProfileDrawerButtonComp />
       ) : (

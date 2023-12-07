@@ -1,53 +1,81 @@
 import React from 'react'
 import { Button, Card, Image } from 'antd'
-import PropTypes from 'prop-types'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
-import { useGetStockByProductIdQuery } from '../../redux/api/StockApi.jsx'
+import { useDispatch, useSelector } from 'react-redux'
+import { useGetProductByIdQuery } from '../../redux/api/ProductApi.jsx'
+import { setShoppingCart } from '../../redux/slices/ShoppingCart.slice'
 
-export const FeedProductCardComp = ({ product }) => {
-  const { data, isLoading, isError, error, refetch } =
-    useGetStockByProductIdQuery(product.id)
+export const FeedProductCardComp = ({ productId, stock }) => {
+  const { data } = useGetProductByIdQuery(productId)
+  const dispatch = useDispatch()
+  const shoppingCart = useSelector((state) => state.shoppingCart.shoppingCart)
 
-  console.log(data)
+  const existingCartItemIndex = shoppingCart.orderItems.findIndex(
+    (item) => item.stockId === stock?.id
+  )
 
-  const { id, name, description, imageUrl } = product
+  const isAddedToCart = existingCartItemIndex !== -1
+
+  const addToCart = () => {
+    if (isAddedToCart) {
+      return
+    }
+
+    const newCartItem = {
+      stockId: stock?.id,
+      productId: data?.id,
+      productName: data?.name,
+      productDescription: data?.description,
+      productImageUrl: data?.imageUrl,
+      price: stock?.price,
+      purchasedQuantity: 1,
+    }
+
+    const updatedShoppingCart = {
+      ...shoppingCart,
+      orderItems: [...(shoppingCart.orderItems || []), newCartItem],
+    }
+
+    dispatch(setShoppingCart(updatedShoppingCart))
+  }
+
   return (
     data && (
       <Card
-        key={id}
-        hoverable
-        className={'w-60'}
+        key={data?.id}
+        className={'w-60 h-full m-4 shadow'}
         cover={
           <Image
-            className={'p-4 h-52 object-cover rounded-3xl'}
-            alt={description || ''}
-            src={imageUrl || ''}
+            className={'h-52 object-cover '}
+            alt={data?.description}
+            src={data?.imageUrl}
           />
         }
+        actions={[
+          <Button
+            className={'justify-center align-center'}
+            style={{ alignItems: 'center' }}
+            type={'primary'}
+            icon={<AiOutlineShoppingCart />}
+            onClick={addToCart}
+            disabled={isAddedToCart}
+          >
+            {isAddedToCart ? 'Added' : 'Add to cart'}
+          </Button>,
+        ]}
       >
-        <Card.Meta title={`$ ${name}` || ''} description={description} />
-        {/*<Rate className={'mt-4'} allowHalf disabled defaultValue={rating} />*/}
-        <Button
-          className={'w-full mt-4 flex justify-center'}
-          style={{ alignItems: 'center' }}
-          type={'primary'}
-          icon={<AiOutlineShoppingCart />}
-        >
-          Add to cart
-        </Button>
+        <Card.Meta
+          className={'mb-auto'}
+          title={`$ ${stock?.price}`}
+          description={
+            <>
+              <strong>{data?.name}</strong>
+              <br />
+              {data?.description}
+            </>
+          }
+        />
       </Card>
     )
   )
-}
-
-FeedProductCardComp.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      description: PropTypes.string,
-      rating: PropTypes.number,
-      imageUrl: PropTypes.string,
-    })
-  ),
 }

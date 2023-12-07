@@ -29,6 +29,7 @@ export const AdminSideMenuComp = () => {
       label: 'Orders',
       key: '3',
       icon: <BiPurchaseTag />,
+      onClick: () => navigate('/admin/order'),
     }),
   ]
 

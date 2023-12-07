@@ -5,14 +5,6 @@ import { useDispatch } from 'react-redux'
 import { AiOutlineMail } from 'react-icons/ai'
 import { toggleisLoginFormShown } from '../../redux/slices/Drawer.slice.js'
 
-const onFinish = (values) => {
-  alert('aaaaa')
-  console.log('Success:', values)
-}
-const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo)
-}
-
 export const RegisterFormComp = () => {
   const dispatch = useDispatch()
 
@@ -28,8 +20,6 @@ export const RegisterFormComp = () => {
       initialValues={{
         remember: true,
       }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
     >
       <Form.Item>
         <Typography.Title level={2} cent>

@@ -3,6 +3,8 @@ import { createBrowserRouter } from 'react-router-dom'
 import { HomePage } from './pages/Home.page.jsx'
 import { AdminPage } from './pages/Admin.page.jsx'
 import { AdminProductPage } from './pages/AdminProduct.page.jsx'
+import { AdminProductManagePage } from './pages/AdminProductManage.page.jsx'
+import { AdminOrderPage } from './pages/AdminOrder.page.jsx'
 
 export const routes = createBrowserRouter([
   {
@@ -14,11 +16,19 @@ export const routes = createBrowserRouter([
     element: <AdminPage />,
     children: [
       {
-        index: null, // Use index property for default child
+        index: null,
         children: [
           {
-            path: 'product', // Relative path to the parent ("/admin")
+            path: 'product',
             element: <AdminProductPage />,
+          },
+          {
+            path: 'product/manage/:id',
+            element: <AdminProductManagePage />,
+          },
+          {
+            path: 'order',
+            element: <AdminOrderPage />,
           },
         ],
       },

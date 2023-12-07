@@ -35,15 +35,10 @@ export const RegisterProductFormComp = () => {
 
   const onSubmitCreateProductForm = async (values) => {
     values.imageFileBase64 = fileList[0]?.thumbUrl?.split(',')[1]
-    console.log(values)
 
     const { data } = await createProduct(values)
 
-    console.log(data)
-  }
-
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo)
+    window.location.reload()
   }
 
   return (
@@ -51,7 +46,6 @@ export const RegisterProductFormComp = () => {
       title={'Register new product'}
       layout={'vertical'}
       onFinish={onSubmitCreateProductForm}
-      onFinishFailed={onFinishFailed}
     >
       <Form.Item>
         <Typography.Title level={2}>Insert new product</Typography.Title>

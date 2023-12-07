@@ -36,12 +36,7 @@ export const LoginFormComp = () => {
     }
   }
 
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo)
-  }
-
   const handleToggleisLoginFormShown = (event) => {
-    console.log(isLoginFormSelected)
     event.preventDefault()
     dispatch(toggleisLoginFormShown())
   }
@@ -54,7 +49,6 @@ export const LoginFormComp = () => {
         remember: true,
       }}
       onFinish={onSubmitLoginForm}
-      onFinishFailed={onFinishFailed}
     >
       <Form.Item>
         <Typography.Title level={2}>Login</Typography.Title>
